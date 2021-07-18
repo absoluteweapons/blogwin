@@ -10,7 +10,7 @@ const posthtml = require("posthtml");
 const uglify = require("posthtml-minify-classnames");
 require("dotenv").config();
 
-// Environment variables
+// environment variables
 nunjucks.configure("views", {}).addGlobal("CFWA_TOKEN", process.env.CFWA_TOKEN);
 const environment = process.env.ENVIRONMENT;
 
@@ -19,43 +19,7 @@ const inputDir = "_src";
 const outputDir = "_dist";
 
 // markdown-it-class mapping
-//const mapping = require("./_src/assets/styles/markdown.js");
-const mapping = {
-  h1: ["text-3xl", "text-red-400", "font-bold", "mb-4", "mt-6"],
-  h2: ["text-2xl", "text-red-400", "font-bold", "mb-4", "mt-6"],
-  h3: ["text-1xl", "text-red-400", "font-bold", "mb-4", "mt-6"],
-  h4: ["text-xl", "text-red-400", "font-bold", "mb-4", "mt-6"],
-  a: [
-    "border-b",
-    "border-red-500",
-    "dark:border-red-400",
-    "inline-block",
-    "pb-0.5",
-    "transition",
-    "hover:border-red-800",
-    "dark:hover:border-red-100",
-  ],
-  p: ["my-2"],
-  blockquote: ["border-l-4", "border-red-400", "pl-6", "my-6"],
-  code: [
-    "align-middle",
-    "bg-gray-800",
-    "text-gray-100",
-    "dark:bg-gray-200",
-    "dark:text-gray-700",
-    "inline-block",
-    "p-0.5",
-    "px-2",
-    "rounded",
-    "shadow-sm",
-    "max-w-full",
-    "overflow-auto",
-  ],
-  ol: ["list-outside", "list-decimal", "pl-5"],
-  ul: ["list-outside", "list-disc", "pl-5"],
-  li: ["mb-1"],
-  strong: ["font-bold"],
-};
+const mapping = require("./_src/_config/markdown-mapping.json");
 
 // enable markdown-it formatting
 const md = markdownIt({ linkify: true, html: true, typographer: true });
@@ -110,10 +74,15 @@ module.exports = (config) => {
         sizes,
         loading: "lazy",
         decoding: "async",
+        class: "md:rounded shadow-sm my-2 sm:my-4 transform -translate-x-11 sm:translate-x-0 w-screen sm:w-full",
+        style: "max-width: 100vw;",
       };
 
       // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
-      return Image.generateHTML(metadata, imageAttributes);
+      return Image.generateHTML(
+        metadata,
+        imageAttributes
+      );
     }
 
     // only apply transforms if the output is html (not xml or css or something)
@@ -123,7 +92,9 @@ module.exports = (config) => {
       const document = dom.window.document;
 
       // find the image elements via `queryselectorall`, replace this selector with your own custom one
-      const imageElems = document.querySelectorAll("img");
+      const imageElems = document.querySelectorAll(
+        "img:not([data-no-responsive])"
+      );
 
       // no images? crack on
       if (imageElems.length === 0) {
@@ -149,7 +120,9 @@ module.exports = (config) => {
   // TODO production only
   config.addTransform("htmlmin", async (content, outputPath) => {
     if (outputPath.endsWith(".html") && environment === "production") {
-      const { html } = await posthtml().use(uglify()).process(content);
+      const { html } = await posthtml()
+        .use(uglify())
+        .process(content);
 
       let minified = htmlmin.minify(html, {
         useShortDoctype: true,

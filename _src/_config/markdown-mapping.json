@@ -1,0 +1,42 @@
+{
+  "h1": ["text-3xl", "text-red-400", "font-bold", "mb-4", "mt-8"],
+  "h2": ["text-2xl", "text-red-400", "font-bold", "mb-4", "mt-8"],
+  "h3": ["text-1xl", "text-red-400", "font-bold", "mb-4", "mt-8"],
+  "h4": ["text-xl", "text-red-400", "font-bold", "mb-4", "mt-8"],
+  "a": [
+    "border-b",
+    "border-red-500",
+    "dark:border-red-400",
+    "inline-block",
+    "pb-0.5",
+    "transition",
+    "hover:border-red-800",
+    "dark:hover:border-red-100"
+  ],
+  "p": ["my-2"],
+  "blockquote": [
+    "border-l-4",
+    "border-red-400",
+    "pl-6",
+    "my-6"
+  ],
+  "code": [
+    "align-middle",
+    "bg-gray-800",
+    "text-gray-100",
+    "dark:bg-gray-200",
+    "dark:text-gray-700",
+    "inline-block",
+    "p-0.5",
+    "px-2",
+    "rounded",
+    "shadow-sm",
+    "max-w-full",
+    "overflow-auto",
+    "leading-snug"
+  ],
+  "ol": ["list-outside", "list-decimal", "pl-5"],
+  "ul": ["list-outside", "list-disc", "pl-5"],
+  "li": ["mb-1"],
+  "strong": ["font-bold"]
+}

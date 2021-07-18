@@ -36,7 +36,7 @@
     "markdown-it-class": "file:./markdown-it-class",
     "npm": "^7.7.5",
     "nunjucks": "^3.2.2",
-    "posthtml-minify-classnames": "^0.1.7",
+    "posthtml-minify-classnames": "^0.2.3",
     "tailwindcss": "^2.0.2",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1"

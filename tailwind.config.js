@@ -3,10 +3,11 @@ module.exports = {
     enabled: true,
     content: [
       "./_src/**/*.njk",
-      "./.eleventy.js"
+      "./.eleventy.js",
+      "./_src/_config/markdown-mapping.json"
     ],
   },
-  darkMode: "media", // 'media' or 'class'
+  darkMode: "class", // 'media' or 'class'
   theme: {
     extend: {},
   },
