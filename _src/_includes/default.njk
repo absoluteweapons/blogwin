@@ -1,37 +1,100 @@
 <!doctype html>
-<html lang="en" class="dark">
+<html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
 
-    <!-- 
-      Since most traffic is single page + to benefit from minify classnames
-      output CSS to HTML in <style> tag
-      -->
+    <!-- Since most traffic is single page + to benefit from minify classnames output CSS to HTML in <style> tag -->
     {% set css %}
     {% include "../../_dist/assets/styles/my.css" %}
     {% endset %}
     <!-- Pipe CSS through safe so Nunjucks doesn't reformat -->
-    <style>{{css | safe}}</style>
+    <style>
+      {{css | safe}}
+    </style>
 
     <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ CFWA_TOKEN }}"}'></script>
+    <script defer="defer" src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ CFWA_TOKEN }}"}'></script>
     <!-- End Cloudflare Web Analytics -->
+
+    <!-- Dark mode default -->
+    <script>
+      ((window, document, localStorage) => {
+        // function to toggle class based on local storage or browser prefs
+        const manageDark = () => {
+          if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document
+              .documentElement
+              .classList
+              .add('dark')
+          } else {
+            document
+              .documentElement
+              .classList
+              .remove('dark')
+          }
+        }
+
+        // dom ready for darkToggle below
+        const ready = fn => {
+          if (document.readyState != 'loading') {
+            fn();
+          } else {
+            document.addEventListener('DOMContentLoaded', fn);
+          }
+        }
+
+        const toggleDark = () => {
+          // toggle radio input
+          const darkToggle = document.querySelectorAll("input[name='dark-mode']");
+
+          // listen for changes
+          darkToggle.forEach(el => {
+            // respect localStorage for pre-checked
+            el.removeAttribute("checked");
+            if (localStorage.theme) {
+              if (localStorage.theme === el.value) el.setAttribute("checked", "");
+            } else {
+              if (el.value === "auto") el.setAttribute("checked", "");
+            }
+
+            el.addEventListener("click", event => {
+              // grab value of click
+              const val = event.srcElement.value;
+
+              // set correct state
+              if (val === "dark")   localStorage.theme = 'dark';
+              if (val === "light")  localStorage.theme = 'light';
+              if (val === "auto")   localStorage.removeItem('theme');
+
+              // apply new state
+              manageDark();
+            });
+          })
+        }
+
+        // set on load
+        manageDark();
+
+        // allow user to change when dom ready
+        ready(toggleDark);
+      })(window, document, localStorage);
+    </script>
   </head>
   <body class="subpixel-antialiased font-light tracking-wide text-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
     <div class="w-full flex justify-end">
       <div class="flex flex-row">
-        <div>
-          <input class="hidden peer" type="radio" name="dark-mode" value="dark" id="dark" />
+        <div class="mr-2">
+          <input class="hidden peer" type="radio" name="dark-mode" value="dark" id="dark"/>
           <label class="peer-checked:text-red-400" for="dark">Dark</label>
         </div>
-        <div>
-          <input class="hidden peer" type="radio" name="dark-mode" value="light" id="light" />
+        <div class="mr-2">
+          <input class="hidden peer" type="radio" name="dark-mode" value="light" id="light"/>
           <label class="peer-checked:text-red-400" for="light">Light</label>
         </div>
-        <div>
-          <input class="hidden peer" type="radio" name="dark-mode" value="auto" id="auto" checked />
+        <div class="mr-2">
+          <input class="hidden peer" type="radio" name="dark-mode" value="auto" id="auto" checked="checked"/>
           <label class="peer-checked:text-red-400" for="auto">Auto</label>
         </div>
       </div>
@@ -42,7 +105,7 @@
     <footer class="container mx-auto max-w-4xl p-4 border-solid border-0 border-t border-gray-300 dark:border-gray-600 p-4 flex text-gray-700 dark:text-gray-300">
       <div class="flex-1 p-2">
         <h2 class="text-xl mb-4">Blogwin, by Jamie Evawin</h2>
-        <img loading="lazy" data-no-responsive class="rounded-full shadow-md" srcset="http://www.gravatar.com/avatar/e2d9a0243d695c9c7436328855a8ee8a?s=100 100w,
+        <img loading="lazy" data-no-responsive="data-no-responsive" class="rounded-full shadow-md" srcset="http://www.gravatar.com/avatar/e2d9a0243d695c9c7436328855a8ee8a?s=100 100w,
         https://www.gravatar.com/avatar/e2d9a0243d695c9c7436328855a8ee8a?s=150 150w" sizes="(max-width: 400px) 100px, 150px" src="http://www.gravatar.com/avatar/e2d9a0243d695c9c7436328855a8ee8a?s=100" alt="Jamie's handsome profile picture">
       </div>
       <div class="flex-1 p-2">

@@ -7,7 +7,8 @@
     "clean": "rm -R _dist",
     "develop": "eleventy --serve",
     "develop-fresh": "npm run clean && npm run develop",
-    "build": "eleventy"
+    "build": "eleventy",
+    "fresh-install": "rm -R node_modules && npm install"
   },
   "repository": {
     "type": "git",
@@ -37,7 +38,7 @@
     "npm": "^7.7.5",
     "nunjucks": "^3.2.2",
     "posthtml-minify-classnames": "^0.2.3",
-    "tailwindcss": "^2.0.2",
+    "tailwindcss": "^2.1.x",
     "webpack": "^5.11.1",
     "webpack-cli": "^4.3.1"
   }
