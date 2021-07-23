@@ -20,7 +20,23 @@
     <!-- End Cloudflare Web Analytics -->
   </head>
   <body class="subpixel-antialiased font-light tracking-wide text-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
-    <div class="container mx-auto max-w-4xl">
+    <div class="w-full flex justify-end">
+      <div class="flex flex-row">
+        <div>
+          <input class="hidden peer" type="radio" name="dark-mode" value="dark" id="dark" />
+          <label class="peer-checked:text-red-400" for="dark">Dark</label>
+        </div>
+        <div>
+          <input class="hidden peer" type="radio" name="dark-mode" value="light" id="light" />
+          <label class="peer-checked:text-red-400" for="light">Light</label>
+        </div>
+        <div>
+          <input class="hidden peer" type="radio" name="dark-mode" value="auto" id="auto" checked />
+          <label class="peer-checked:text-red-400" for="auto">Auto</label>
+        </div>
+      </div>
+    </div>
+    <div class="container mx-auto max-w-4xl p-4 sm:p-0">
       {{ content | safe }}
     </div>
     <footer class="container mx-auto max-w-4xl p-4 border-solid border-0 border-t border-gray-300 dark:border-gray-600 p-4 flex text-gray-700 dark:text-gray-300">

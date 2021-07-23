@@ -1,6 +1,6 @@
 module.exports = {
+  mode: "jit",
   purge: {
-    enabled: true,
     content: [
       "./_src/**/*.njk",
       "./.eleventy.js",
