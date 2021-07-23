@@ -5,17 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{{title}}</title>
 
-    <!-- capture the CSS content as a Nunjucks variable -->
+    <!-- 
+      Since most traffic is single page + to benefit from minify classnames
+      output CSS to HTML in <style> tag
+      -->
     {% set css %}
-    {% include "_dist/assets/styles/my.css" %}
+    {% include "../../_dist/assets/styles/my.css" %}
     {% endset %}
-    <!-- feed it through our cssmin filter to minify -->
-    <style>
-      {{css | safe}}
-    </style>
+    <!-- Pipe CSS through safe so Nunjucks doesn't reformat -->
+    <style>{{css | safe}}</style>
 
     <!-- Cloudflare Web Analytics -->
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{CFWA_TOKEN}}"}'></script>
+    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ CFWA_TOKEN }}"}'></script>
     <!-- End Cloudflare Web Analytics -->
   </head>
   <body class="subpixel-antialiased font-light tracking-wide text-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
@@ -25,7 +26,7 @@
     <footer class="container mx-auto max-w-4xl p-4 border-solid border-0 border-t border-gray-300 dark:border-gray-600 p-4 flex text-gray-700 dark:text-gray-300">
       <div class="flex-1 p-2">
         <h2 class="text-xl mb-4">Blogwin, by Jamie Evawin</h2>
-        <img data-no-responsive class="rounded-full shadow-md" srcset="http://www.gravatar.com/avatar/e2d9a0243d695c9c7436328855a8ee8a?s=100 100w,
+        <img loading="lazy" data-no-responsive class="rounded-full shadow-md" srcset="http://www.gravatar.com/avatar/e2d9a0243d695c9c7436328855a8ee8a?s=100 100w,
         https://www.gravatar.com/avatar/e2d9a0243d695c9c7436328855a8ee8a?s=150 150w" sizes="(max-width: 400px) 100px, 150px" src="http://www.gravatar.com/avatar/e2d9a0243d695c9c7436328855a8ee8a?s=100" alt="Jamie's handsome profile picture">
       </div>
       <div class="flex-1 p-2">
