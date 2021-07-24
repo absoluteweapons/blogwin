@@ -83,19 +83,31 @@
     </script>
   </head>
   <body class="subpixel-antialiased font-light tracking-wide text-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
-    <div class="w-full flex justify-end">
-      <div class="flex flex-row">
-        <div class="mr-2">
+    <div class="w-full flex justify-end text-sm">
+      <div class="flex flex-row mt-2">
+        <div class="mr-4">
           <input class="hidden peer" type="radio" name="dark-mode" value="dark" id="dark"/>
-          <label class="peer-checked:text-red-400" for="dark">Dark</label>
+          <label class="peer-checked:text-red-400 text-center" for="dark">
+            <span class="block text-base">&#9790;</span>
+            Dark
+          </label>
         </div>
-        <div class="mr-2">
+        <div class="mr-4">
           <input class="hidden peer" type="radio" name="dark-mode" value="light" id="light"/>
-          <label class="peer-checked:text-red-400" for="light">Light</label>
+          <label class="peer-checked:text-red-400 text-center" for="light">
+            <span class="block text-base">&#9788;</span>
+            Light
+          </label>
         </div>
-        <div class="mr-2">
+        <div class="mr-4">
           <input class="hidden peer" type="radio" name="dark-mode" value="auto" id="auto" checked="checked"/>
-          <label class="peer-checked:text-red-400" for="auto">Auto</label>
+          <label class="peer-checked:text-red-400 text-center" for="auto">
+            <span class="block text-base">
+              <span class="-mr-2">&#9790;</span>
+              <span class="-ml-2">&#9788;</span>
+            </span>
+            Auto
+          </label>
         </div>
       </div>
     </div>

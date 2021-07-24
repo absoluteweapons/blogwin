@@ -40,7 +40,15 @@ module.exports = (config) => {
   config.addPlugin(pluginTailwindCSS, {
     src: "_src/assets/styles/my.css",
   });
-
+  
+  // Sometimes handy for making sure your browser refreshes the CSS
+  config.addShortcode("version", function () {
+    return String(Date.now());
+  });
+  
+  // Apparently this, on top of the PostCSS pruning options watching 11ty, helps 11ty watch Tailwind or something.
+  config.addWatchTarget("./_dist/tailwindoutlive.css");
+  
   // markdown-it, classnames and responsive images
   config.setLibrary("md", md);
 
