@@ -14,16 +14,38 @@
       {{css | safe}}
     </style>
 
-    <!-- Cloudflare Web Analytics -->
-    <script defer="defer" src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "{{ CFWA_TOKEN }}"}'></script>
-    <!-- End Cloudflare Web Analytics -->
+    {% CFWA %}
+  </head>
+  <body class="subpixel-antialiased font-light tracking-wide text-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
 
-    <!-- Dark mode default -->
+  {{ foo }}
+  
+    <div class="flex items-center justify-end w-full text-sm pt-2 pr-2">        
+      <label for="darkMode" class="flex items-center cursor-pointer">
+        <!-- label -->
+        <div class="mr-2">
+          Dark Mode
+        </div>
+        <!-- toggle -->
+        <div class="relative">
+          <!-- input -->
+          <input type="checkbox" id="darkMode" class="sr-only peer">
+          <!-- line -->
+          <div class="block bg-gray-600 w-14 h-8 rounded-full shadow-inner"></div>
+          <!-- dot -->
+          <div class="dot absolute left-1 top-1 bg-white bg-sun shadow w-6 h-6 rounded-full transition peer-checked:translate-x-full peer-checked:bg-red-400 peer-checked:bg-moon"></div>
+        </div>
+      </label>
+    </div>
+
+    <!-- Dark mode -->
     <script>
-      ((window, document, localStorage) => {
+      ((window, document, storage) => {
+        // os preference
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         // function to toggle class based on local storage or browser prefs
         const manageDark = () => {
-          if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+          if (storage.theme === 'dark' || (!('theme' in storage) && prefersDark)) {
             document
               .documentElement
               .classList
@@ -36,81 +58,30 @@
           }
         }
 
-        // dom ready for darkToggle below
-        const ready = fn => {
-          if (document.readyState != 'loading') {
-            fn();
-          } else {
-            document.addEventListener('DOMContentLoaded', fn);
-          }
+        // toggle radio input
+        const darkToggle = document.getElementById("darkMode");
+
+        // respect storage for pre-checked
+        if (storage.theme === 'dark' || (!('theme' in storage) && prefersDark)) {
+          darkToggle.checked = true;
+        } else {
+          darkToggle.checked = false;
         }
 
-        const toggleDark = () => {
-          // toggle radio input
-          const darkToggle = document.querySelectorAll("input[name='dark-mode']");
+        // listen for changes
+        darkToggle.addEventListener("click", event => {
+          // set correct state
+          storage.theme = (darkToggle.checked) ? "dark" : "light";
 
-          // listen for changes
-          darkToggle.forEach(el => {
-            // respect localStorage for pre-checked
-            el.removeAttribute("checked");
-            if (localStorage.theme) {
-              if (localStorage.theme === el.value) el.setAttribute("checked", "");
-            } else {
-              if (el.value === "auto") el.setAttribute("checked", "");
-            }
-
-            el.addEventListener("click", event => {
-              // grab value of click
-              const val = event.srcElement.value;
-
-              // set correct state
-              if (val === "dark")   localStorage.theme = 'dark';
-              if (val === "light")  localStorage.theme = 'light';
-              if (val === "auto")   localStorage.removeItem('theme');
-
-              // apply new state
-              manageDark();
-            });
-          })
-        }
+          // apply new state
+          manageDark();
+        });
 
         // set on load
         manageDark();
-
-        // allow user to change when dom ready
-        ready(toggleDark);
-      })(window, document, localStorage);
+      })(window, document, sessionStorage);
     </script>
-  </head>
-  <body class="subpixel-antialiased font-light tracking-wide text-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
-    <div class="w-full flex justify-end text-sm">
-      <div class="flex flex-row mt-2">
-        <div class="mr-4">
-          <input class="hidden peer" type="radio" name="dark-mode" value="dark" id="dark"/>
-          <label class="peer-checked:text-red-400 text-center" for="dark">
-            <span class="block text-base">&#9790;</span>
-            Dark
-          </label>
-        </div>
-        <div class="mr-4">
-          <input class="hidden peer" type="radio" name="dark-mode" value="light" id="light"/>
-          <label class="peer-checked:text-red-400 text-center" for="light">
-            <span class="block text-base">&#9788;</span>
-            Light
-          </label>
-        </div>
-        <div class="mr-4">
-          <input class="hidden peer" type="radio" name="dark-mode" value="auto" id="auto" checked="checked"/>
-          <label class="peer-checked:text-red-400 text-center" for="auto">
-            <span class="block text-base">
-              <span class="-mr-2">&#9790;</span>
-              <span class="-ml-2">&#9788;</span>
-            </span>
-            Auto
-          </label>
-        </div>
-      </div>
-    </div>
+
     <div class="container mx-auto max-w-4xl p-4 sm:p-0">
       {{ content | safe }}
     </div>

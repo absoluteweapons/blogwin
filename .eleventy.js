@@ -11,16 +11,12 @@ const pluginTailwindCSS = require("eleventy-plugin-tailwindcss");
 const responsiveImg = require("./_src/_config/responsiveImg.js")
 // eleventy settings
 const { inputDir, outputDir } = require("./_src/_config/settings.json");
-// environment variables
-require("dotenv").config();
+// CFWA
+const CFWA = require("./_src/_config/cfwa.js");
 
-// environment variables
-// nunjucks
-//   .configure("views", {})
-//   .addGlobal("CFWA_TOKEN", process.env.CFWA_TOKEN)
-//   .addGlobal("JAMIE", "true");
-const CFWA_TOKEN = process.env.CFWA_TOKEN;
-const prod = process.env.ENVIRONMENT === "production";
+// environment setup
+require("dotenv").config();
+const prod = process.env.NODE_ENV === "production";
 
 /**
  * markdown-it + markdown-mapping.json maps 
@@ -40,23 +36,29 @@ module.exports = (config) => {
   config.addPlugin(pluginTailwindCSS, {
     src: "_src/assets/styles/my.css",
   });
-  
+
   // Sometimes handy for making sure your browser refreshes the CSS
   config.addShortcode("version", function () {
     return String(Date.now());
   });
-  
+
   // Apparently this, on top of the PostCSS pruning options watching 11ty, helps 11ty watch Tailwind or something.
-  config.addWatchTarget("./_dist/tailwindoutlive.css");
-  
+  config.addWatchTarget("./_dist/assets/styles/my.css");
+
   // markdown-it, classnames and responsive images
   config.setLibrary("md", md);
 
   // responsive images here
   config.addTransform("responsiveImg", responsiveImg);
 
+  // passthrough for svg icons
+  config.addPassthroughCopy("./_src/assets/images/icons");
+
   // minify html and uglify classnames if prod
-  prod && config.addTransform("htmlmin", htmlmin);
+  if (prod) config.addTransform("htmlmin", htmlmin);
+
+  // CWFA_TOKEN token in templates
+  config.addShortcode("CFWA", CFWA);
 
   // set output dir
   return {
