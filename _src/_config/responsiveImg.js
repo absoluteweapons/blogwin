@@ -40,7 +40,7 @@ module.exports = async (content, outputPath) => {
       loading: "lazy",
       decoding: "async",
       class:
-        "md:rounded shadow-sm my-2 sm:my-4 transform -translate-x-11 sm:translate-x-0 w-screen sm:w-full",
+        "md:rounded shadow-sm my-2 sm:my-4 transform -translate-x-9 sm:translate-x-0 w-screen sm:w-full",
       style: "max-width: 100vw;",
     };
 

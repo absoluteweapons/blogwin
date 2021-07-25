@@ -10,10 +10,6 @@ module.exports = {
   darkMode: "class", // 'media' or 'class'
   theme: {
     extend: {
-      backgroundImage: {
-        "bg-moon": "url('/assets/images/icons/dark.svg')",
-        "bg-sun": "url('/assets/images/icons/light.svg')",
-      },
     },
   },
   variants: {

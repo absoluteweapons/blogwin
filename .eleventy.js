@@ -3,10 +3,6 @@ const htmlmin = require("./_src/_config/htmlmin.js");
 // markdown-it including markdown-it-class to add classes
 const markdownIt = require("@gerhobbelt/markdown-it");
 const markdownItClass = require("markdown-it-class");
-// nunjucks
-const Nunjucks = require("nunjucks");
-// tailwind
-const pluginTailwindCSS = require("eleventy-plugin-tailwindcss");
 // responsive images
 const responsiveImg = require("./_src/_config/responsiveImg.js")
 // eleventy settings
@@ -32,16 +28,6 @@ module.exports = (config) => {
     return [...collection.getFilteredByGlob("./_src/posts/*.md")].reverse();
   });
 
-  // enable tailwind
-  config.addPlugin(pluginTailwindCSS, {
-    src: "_src/assets/styles/my.css",
-  });
-
-  // Sometimes handy for making sure your browser refreshes the CSS
-  config.addShortcode("version", function () {
-    return String(Date.now());
-  });
-
   // Apparently this, on top of the PostCSS pruning options watching 11ty, helps 11ty watch Tailwind or something.
   config.addWatchTarget("./_dist/assets/styles/my.css");
 
@@ -50,9 +36,6 @@ module.exports = (config) => {
 
   // responsive images here
   config.addTransform("responsiveImg", responsiveImg);
-
-  // passthrough for svg icons
-  config.addPassthroughCopy("./_src/assets/images/icons");
 
   // minify html and uglify classnames if prod
   if (prod) config.addTransform("htmlmin", htmlmin);
