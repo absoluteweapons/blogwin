@@ -3,6 +3,7 @@ const path = require('path')
 const Image = require("@11ty/eleventy-img");
 // JSDOM for DOM manipulation
 const { JSDOM } = require("jsdom");
+require("dotenv").config();
 // eleventy settings
 const {inputDir, outputDir} = require("./settings.json");
 
@@ -26,10 +27,14 @@ module.exports = async (content, outputPath) => {
     // set up some widths
     let sizes = [320, 568, 768, 900];
 
+    // jpeg for development
+    let formats = ["jpeg"];
+    if (process.env.NODE_ENV === "production") formats.push("avif", "webp");
+
     // run image through elevnty-img
     let metadata = await Image(src, {
       widths: sizes,
-      formats: ["avif", "webp", "jpeg"],
+      formats: formats,
       outputDir: "_dist/assets/images",
       urlPath: "/assets/images/",
     });
