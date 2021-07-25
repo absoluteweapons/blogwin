@@ -4,9 +4,9 @@
   "description": "Jamie Evawin's personal blog.",
   "main": "index.md",
   "scripts": {
-    "clean": "rm -R _dist",
+    "clean": "rm -rf _dist",
     "build": "export NODE_ENV=production && eleventy",
-    "build-test": "export NODE_ENV=production && eleventy --serve",
+    "build-test": "npm run clean && export NODE_ENV=production && eleventy --serve",
     "develop": "export NODE_ENV=development && eleventy --serve",
     "develop-fresh": "npm run clean && npm run develop",
     "fresh-install": "rm -R node_modules && npm install"
