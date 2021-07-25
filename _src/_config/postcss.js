@@ -1,11 +1,19 @@
 const path = require("path");
 const fs = require("fs").promises;
 const postCss = require("postcss");
+require("dotenv").config();
 
 const postCssPlugins = [
   require(`tailwindcss`)(`tailwind.config.js`),
   require(`autoprefixer`),
 ];
+
+// minify for production
+if (process.env.NODE_ENV === "priduction") postCssPlugins.push(
+  require("cssnano")({
+    preset: "default",
+  })
+);
 
 module.exports = async function (cssInputFilePathParam) {
   const cssInputFilePath = path.resolve("_src", cssInputFilePathParam);

@@ -6,6 +6,9 @@ module.exports = {
       "./_src/**/*.{njk,json,js}",
       "./.eleventy.js",
     ],
+    options: {
+      keyframes: true
+    }
   },
   darkMode: "class", // 'media' or 'class'
   theme: {

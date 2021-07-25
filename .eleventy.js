@@ -1,4 +1,6 @@
 // html-minifier
+const jsmin = require("./_src/_config/jsmin.js");
+// html-minifier
 const htmlmin = require("./_src/_config/htmlmin.js");
 // markdown-it including markdown-it-class to add classes
 const markdownIt = require("@gerhobbelt/markdown-it");
@@ -40,11 +42,17 @@ module.exports = (config) => {
   // responsive images here
   config.addTransform("responsiveImg", responsiveImg);
 
+  // minify js
+  config.addNunjucksAsyncFilter("jsmin", jsmin);
+
   // minify html and uglify classnames if prod
   if (prod) config.addTransform("htmlmin", htmlmin);
 
   // CWFA_TOKEN token in templates
   config.addShortcode("CFWA", CFWA);
+
+  // favicons
+  config.addPassthroughCopy("./_src/favicons");
 
   // set output dir
   return {
