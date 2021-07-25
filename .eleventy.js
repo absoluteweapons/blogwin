@@ -22,6 +22,9 @@ const mapping = require("./_src/_config/markdown-mapping.json");
 const md = markdownIt({ linkify: true, html: true, typographer: true });
 md.use(markdownItClass, mapping);
 
+// console log environment
+console.log(`Building for: ${process.env.NODE_ENV}`);
+
 module.exports = (config) => {
   // create a posts collection from all markdown files in posts directory
   config.addCollection("posts", (collection) => {

@@ -5,9 +5,10 @@
   "main": "index.md",
   "scripts": {
     "clean": "rm -R _dist",
-    "develop": "NODE_ENV=development && eleventy --serve",
+    "develop": "export NODE_ENV=development && eleventy --serve",
     "develop-fresh": "npm run clean && npm run develop",
-    "build": "NODE_ENV=production eleventy",
+    "build": "export NODE_ENV=production && eleventy",
+    "build-test": "export NODE_ENV=production && eleventy --serve",
     "fresh-install": "rm -R node_modules && npm install"
   },
   "repository": {

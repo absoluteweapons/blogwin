@@ -14,22 +14,22 @@
       {{ tailwind | safe }}
     </style>
 
+    <!-- To work with posthtml-minify-classnames this script holds the minified version of .dark -->
+    <script data-dark-class class="dark"></script>
+
     {% CFWA %}
   </head>
-  <body class="subpixel-antialiased font-light tracking-wide text-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white">
-
-  {{ foo }}
-  
+  <body class="subpixel-antialiased font-light tracking-wide text-lg bg-white text-gray-900 dark:bg-gray-900 dark:text-white">  
     <div class="flex items-center justify-end w-full text-sm pt-2 pr-2">        
       <label for="darkMode" class="flex items-center cursor-pointer">
         <!-- label -->
-        <div id="darkLabel" class="mr-2">
+        <div data-dark-label class="mr-2">
           Dark Mode
         </div>
         <!-- toggle -->
         <div class="relative">
           <!-- input -->
-          <input type="checkbox" id="darkMode" class="sr-only peer">
+          <input type="checkbox" data-dark-input id="darkMode" class="sr-only peer">
           <!-- line -->
           <div class="block bg-gray-600 w-14 h-8 rounded-full shadow-inner flex justify-around">
               <svg class="fill-current text-white self-center" viewBox="-2 -2 24 24" width="20" height="20" xmlns="http://www.w3.org/2000/svg"><path d="M10 3.75c-1.727 0-3.197.614-4.41 1.84C4.365 6.804 3.75 8.274 3.75 10c0 1.727.614 3.197 1.84 4.41 1.213 1.226 2.683 1.84 4.41 1.84 1.727 0 3.197-.614 4.41-1.84 1.226-1.213 1.84-2.683 1.84-4.41 0-1.727-.614-3.197-1.84-4.41-1.213-1.226-2.683-1.84-4.41-1.84zm0 1.364c1.348 0 2.5.477 3.454 1.431.955.955 1.432 2.107 1.432 3.455 0 1.348-.477 2.5-1.431 3.454-.955.955-2.107 1.432-3.455 1.432-1.348 0-2.5-.477-3.455-1.431C5.591 12.5 5.114 11.348 5.114 10c0-1.348.477-2.5 1.431-3.455C7.5 5.591 8.652 5.114 10 5.114zM10 2.5l.454.045V0h-.909v2.545L10 2.5zm7.546.932a6.438 6.438 0 00-.614-.66l-1.796 1.796c.137.152.334.371.591.66l1.819-1.796zM.023 10.796H2.59c-.06-.5-.091-.766-.091-.796 0-.015.008-.038.023-.068v-.046H0v.228c0 .106.008.333.023.681zm4.84-6.228L3.069 2.773c-.197.197-.401.416-.613.659l1.818 1.795c.242-.288.44-.507.59-.659zm-2.09 12.364c.197.197.416.401.659.614l1.795-1.819-.659-.59-1.795 1.795zm12-1.205l1.795 1.819a6.21 6.21 0 00.66-.614l-1.796-1.796c-.152.152-.371.349-.66.591zM20 9.887h-2.523v.045c.015.03.023.053.023.068 0 .03-.03.296-.09.796h2.567c.015-.334.023-.599.023-.796v-.114zM10 20l.454-.023v-2.523L10 17.5l-.455-.046v2.523L10 20z" /><path d="M15.919 10.02a5.958 5.958 0 11-11.916 0 5.958 5.958 0 0111.916 0z" /></svg>
@@ -44,30 +44,32 @@
     <!-- Dark mode -->
     <script>
       ((window, document, storage) => {
+        // dark class
+        const darkClass = document.querySelector("[data-dark-class]").getAttribute("class");
         // os preference
         const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
         // function to toggle class based on local storage or browser prefs
         const manageDark = () => {
           // change label
-          const darkLabel = document.getElementById("darkLabel");
+          const darkLabel = document.querySelector("[data-dark-label]");
 
           if (storage.theme === 'dark' || (!('theme' in storage) && prefersDark)) {
             document
               .documentElement
               .classList
-              .add('dark')
+              .add(darkClass)
             darkLabel.textContent = "Dark Mode";
           } else {
             document
               .documentElement
               .classList
-              .remove('dark')
+              .remove(darkClass)
             darkLabel.textContent = "Light Mode";
           }
         }
 
         // toggle radio input
-        const darkToggle = document.getElementById("darkMode");
+        const darkToggle = document.querySelector("[data-dark-input]");
 
         // respect storage for pre-checked
         if (storage.theme === 'dark' || (!('theme' in storage) && prefersDark)) {
