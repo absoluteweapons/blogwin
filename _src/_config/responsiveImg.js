@@ -25,16 +25,17 @@ module.exports = async (content, outputPath) => {
     }
 
     // set up some widths
-    let sizes = [320, 568, 768, 900];
+    const widths = sizes = [320, 568, 768, 900];
 
     // jpeg for development
-    let formats = ["jpeg"];
+    let formats = [];
     if (process.env.NODE_ENV === "production") formats.push("avif", "webp");
+    formats.push("jpeg");
 
     // run image through elevnty-img
     let metadata = await Image(src, {
-      widths: sizes,
-      formats: formats,
+      widths,
+      formats,
       outputDir: "_dist/assets/images",
       urlPath: "/assets/images/",
     });
