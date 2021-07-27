@@ -18,3 +18,5 @@ fields:
   name: cover
   label: cover
   hidden: true
+pages:
+- _jekyll/_posts/how-to-quickly-make-and-share-a-screen-recording-gif-in-macos.md
