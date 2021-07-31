@@ -4,16 +4,16 @@ module.exports = {
     content: [
       "./_dist/**/*.html",
       "./_src/**/*.{njk,json,js}",
+      "./_src/**/*.{njk,json,js}",
       "./.eleventy.js",
     ],
     options: {
-      keyframes: true
-    }
+      keyframes: true,
+    },
   },
   darkMode: "class", // 'media' or 'class'
   theme: {
-    extend: {
-    },
+    extend: {},
   },
   variants: {
     extend: {},

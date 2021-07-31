@@ -1,6 +1,6 @@
 ---
 layout: default.njk
-permalink: "/{{ page.date | date: '%Y-%m-%d-' }}{{page.fileSlug}}/"
+permalink: "/{{page.fileSlug}}/"
 ---
 <main class="container">
   <header class="mt-4 mb-6">
@@ -10,4 +10,9 @@ permalink: "/{{ page.date | date: '%Y-%m-%d-' }}{{page.fileSlug}}/"
   <article>
     {{ content | safe }}
   </article>
+  <!-- Comments -->
+  {% set comments %}
+    {% include "../assets/scripts/inline/comments.js" %}
+  {% endset %}
+  <script>{{ comments | jsmin | safe }}</script>
 </main>

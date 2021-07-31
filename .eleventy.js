@@ -33,8 +33,9 @@ module.exports = (config) => {
     return [...collection.getFilteredByGlob("./_src/posts/*.md")].reverse();
   });
 
-  // Apparently this, on top of the PostCSS pruning options watching 11ty, helps 11ty watch Tailwind or something.
+  // additional watched files
   config.addWatchTarget("./_dist/assets/styles/my.css");
+  config.addWatchTarget("./_src/assets/");
 
   // markdown-it, classnames and responsive images
   config.setLibrary("md", md);
