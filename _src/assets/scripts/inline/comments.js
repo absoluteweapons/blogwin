@@ -6,7 +6,7 @@
     // hyvor settings
     window.HYVOR_TALK_WEBSITE = 4759;
     window.HYVOR_TALK_CONFIG = {
-      url: {{page.url}},
+      url: "{{page.url}}",
     };
 
     // hyvor js
@@ -28,7 +28,7 @@
   }
 
   const observer = new IntersectionObserver(entries => {
-    if(entries[0].isIntersecting) insertComments();
+    if (entries[0].isIntersecting) insertComments();
   }, options);
 
   observer.observe(commentSection);
