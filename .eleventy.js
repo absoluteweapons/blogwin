@@ -30,7 +30,8 @@ console.log(`Building for: ${process.env.NODE_ENV}`);
 module.exports = (config) => {
   // create a posts collection from all markdown files in posts directory
   config.addCollection("posts", (collection) => {
-    return [...collection.getFilteredByGlob("./_src/posts/*.md")].reverse();
+    const posts = [...collection.getFilteredByGlob("./_src/posts/*.md")].reverse();
+    return (prod) ? posts.filter(post => !post.data.draft) : posts;
   });
 
   // additional watched files
