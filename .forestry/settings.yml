@@ -4,12 +4,13 @@ auto_deploy: false
 admin_path: ".forestry"
 webhook_url: 
 sections:
-- type: jekyll-pages
-  label: Pages
-  create: all
-- type: jekyll-posts
+- type: directory
+  path: _src/posts
   label: Posts
-  create: all
+  create: documents
+  match: "**/*"
+  templates:
+  - blog-post
 upload_dir: _src/assets/images/uploads
 public_path: "/assets/images"
 front_matter_path: ''
