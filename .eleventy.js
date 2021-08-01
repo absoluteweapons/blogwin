@@ -30,8 +30,17 @@ console.log(`Building for: ${process.env.NODE_ENV}`);
 module.exports = (config) => {
   // create a posts collection from all markdown files in posts directory
   config.addCollection("posts", (collection) => {
-    const posts = [...collection.getFilteredByGlob("./_src/posts/*.md")].reverse();
-    return (prod) ? posts.filter(post => !post.data.draft) : posts;
+    const posts = [
+      ...collection.getFilteredByGlob("./_src/posts/*.md"),
+    ].reverse();
+    return prod ? posts.filter((post) => !post.data.draft) : posts;
+
+    /* WHY DOES THIS NOT WORK EVEN WITH ASYNC AWAIT?
+    const posts = [...collection.getFilteredByGlob("./_src/posts/*.md")];
+    posts.reverse();
+    posts.filter((post) => !post.data.draft);
+    return posts;
+    */
   });
 
   // additional watched files
