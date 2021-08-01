@@ -21,6 +21,6 @@ fields:
 - name: draft
   type: boolean
   label: Draft
-  default: false
+  default: true
 pages:
 - _src/posts/test.md
