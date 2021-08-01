@@ -18,3 +18,5 @@ fields:
   name: cover
   label: cover
   hidden: true
+pages:
+- _src/posts/test.md
