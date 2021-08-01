@@ -1,6 +1,6 @@
 ((window, document, storage) => {
   // dark class
-  const darkClass = document
+  window.darkClass = document
     .querySelector("[data-dark-class]")
     .getAttribute("class");
   // os preference

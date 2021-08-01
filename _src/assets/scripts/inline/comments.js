@@ -15,19 +15,15 @@
     document.body.appendChild(hyvor);
   }
 
-  // comment container
-  const commentSection = document.createElement("div");
-  commentSection.classList.add("mb-4", "mt-10");
-  commentSection.setAttribute("id", "hyvor-talk-view");
-
+  const commentSection = document.getElementById("hyvor-talk-view");
+  
   // load when nearly in view
   const options = {
-    root: document,
-    rootMargin: '300px',
-    threshold: 0
+    rootMargin: '0 0 300px 0'
   }
 
   const observer = new IntersectionObserver(entries => {
+      console.log(entries);
     if (entries[0].isIntersecting) insertComments();
   }, options);
 
