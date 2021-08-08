@@ -46,8 +46,7 @@ module.exports = async (content, outputPath) => {
       loading: "lazy",
       decoding: "async",
       class:
-        "md:rounded shadow-sm my-2 sm:my-4 transform -translate-x-9 sm:translate-x-0 w-screen sm:w-full",
-      style: "max-width: 100vw;",
+        "md:rounded shadow-sm my-2 sm:my-4 max-w-full",
     };
 
     // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)
