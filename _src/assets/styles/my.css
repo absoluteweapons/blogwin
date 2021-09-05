@@ -6,4 +6,16 @@
   html {
     -webkit-tap-highlight-color: transparent;
   }
+
+  a[href^="http"]::after {
+    content: "\2197";
+    vertical-align: super;
+    @apply text-sm;
+    @apply ml-1;
+  }
+
+  hr {
+    @apply my-4;
+    @apply dark:border-opacity-50;
+  }
 }

@@ -30,7 +30,7 @@ module.exports = async (content, outputPath) => {
     // jpeg for development
     let formats = [];
     if (process.env.NODE_ENV === "production") formats.push("avif", "webp");
-    formats.push("jpeg");
+    formats.push("png", "jpeg");
 
     // run image through elevnty-img
     let metadata = await Image(src, {
@@ -46,7 +46,7 @@ module.exports = async (content, outputPath) => {
       loading: "lazy",
       decoding: "async",
       class:
-        "md:rounded shadow-sm my-2 sm:my-4 max-w-full",
+        "rounded my-2 sm:my-4 max-w-full w-auto m-auto max-h-screen",
     };
 
     // You bet we throw an error on missing alt in `imageAttributes` (alt="" works okay)

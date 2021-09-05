@@ -55,7 +55,7 @@ It’s usually £130 on Amazon (although I've seen it around £150) and if you u
 
 It looks like this.
 
-![A futuristic black router with red stripes, 8 LEDs, 3 antennae and an “ASUS” logo sitting above a raised angled point on the front.](/assets/images/uploads/228efe39-feaa-4295-a942-085bd77df405.png "ASUS RT-AC86U router")
+![A futuristic black router with red stripes, 8 LEDs, 3 antennae and an “ASUS” logo sitting above a raised angled point on the front.](/assets/images/uploads/228efe39-feaa-4295-a942-085bd77df405.jpg "ASUS RT-AC86U router")
 
 ### Step Two
 

@@ -1,4 +1,4 @@
-((document) => {
+((document, storage) => {
   const insertComments = () => {
     // stop observing
     observer.disconnect();
@@ -7,6 +7,7 @@
     window.HYVOR_TALK_WEBSITE = 4759;
     window.HYVOR_TALK_CONFIG = {
       url: "{{page.url}}",
+      palette: (storage.theme === "dark") ? palettes.dark : palettes.light
     };
 
     // hyvor js
@@ -15,12 +16,40 @@
     document.body.appendChild(hyvor);
   }
 
+  window.setCommentPalette = (dark) => {
+    (dark) ? hyvor_talk.setPalette(palettes.dark) : hyvor_talk.setPalette(palettes.light);
+  };
+
   const commentSection = document.getElementById("hyvor-talk-view");
   
+  // hyvor colour palettes
+  const palettes = {
+    light: {
+      accent: "#F87171",
+      accentText: "#111827",
+      footerHeader: "#EFEFEF",
+      footerHeaderText: "#111827",
+      box: "#FFFFFF",
+      boxText: "#111827",
+      boxLightText: "#111827",
+      backgroundText: "#111827"      
+    },
+    dark: {
+      accent: "#F87171",
+      accentText: "#FFFFFF",
+      footerHeader: "#1A243C",
+      footerHeaderText: "#FFFFFF",
+      box: "#111827",
+      boxText: "#FFFFFF",
+      boxLightText: "#FFFFFF",
+      backgroundText: "#FFFFFF"
+    }
+  };
+
   // load when nearly in view
   const options = {
-    rootMargin: '0 0 300px 0'
-  }
+    rootMargin: '300px'
+  };
 
   const observer = new IntersectionObserver(entries => {
       console.log(entries);
@@ -28,8 +57,4 @@
   }, options);
 
   observer.observe(commentSection);
-
-  // insert into end of <main>
-  const main = document.querySelector("main");
-  main.appendChild(commentSection);
-})(document);
+})(document, sessionStorage);

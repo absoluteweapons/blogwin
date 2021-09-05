@@ -7,16 +7,23 @@
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   // function to toggle class based on local storage or browser prefs
   const manageDark = () => {
+    // for hyvor
+    let dark = false;
     // change label
     const darkLabel = document.querySelector("[data-dark-label]");
 
+    // update body class
     if (storage.theme === "dark" || (!("theme" in storage) && prefersDark)) {
       document.documentElement.classList.add(darkClass);
       darkLabel.textContent = "Dark Mode";
+      dark = true;
     } else {
       document.documentElement.classList.remove(darkClass);
       darkLabel.textContent = "Light Mode";
     }
+
+    // update comments
+    typeof setCommentPalette === "function" && setCommentPalette(dark);
   };
 
   // toggle radio input
