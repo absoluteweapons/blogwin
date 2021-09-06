@@ -42,6 +42,7 @@ module.exports = async (content, outputPath) => {
       outputDir: "_dist/assets/images",
       urlPath: "/assets/images/",
     });
+    // TODO images to CDN, Git LFS or similar
 
     let imageAttributes = {
       alt,

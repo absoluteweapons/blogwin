@@ -1,3 +1,4 @@
+// TODO improve reloading, e.g. when css changes
 // html-minifier
 const jsmin = require("./_src/_config/jsmin.js");
 // html-minifier
