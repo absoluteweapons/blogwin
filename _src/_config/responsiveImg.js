@@ -24,10 +24,13 @@ module.exports = async (content, outputPath) => {
       src = path.resolve(__dirname, "..") + src;
     }
 
-    // set up some widths
-    const widths = sizes = [320, 568, 768, 900];
+    // 900 for development, all sizes for production
+    const sizes = [];
+    if (process.env.NODE_ENV === "production") sizes.push(320, 568, 768);
+    sizes.push(900);
+    const widths = sizes;
 
-    // jpeg for development
+    // jpeg for development, avif and webp for production
     let formats = [];
     if (process.env.NODE_ENV === "production") formats.push("avif", "webp");
     formats.push("png", "jpeg");

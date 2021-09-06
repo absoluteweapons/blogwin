@@ -18,4 +18,13 @@
     @apply my-4;
     @apply dark:border-opacity-50;
   }
+
+  p + h1,
+  p + h2, 
+  p + h3, 
+  p + h4, 
+  p + h5, 
+  p + h6 {
+    @apply pt-6;
+  }
 }
