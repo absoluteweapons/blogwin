@@ -6,7 +6,7 @@ const htmlmin = require("html-minifier");
 
 module.exports = async (content, outputPath) => {
   if (outputPath.endsWith(".html")) {
-    const { html } = await posthtml().use(uglify({genNameId: false})).process(content);
+    const { html } = await posthtml().use(uglify(/*{genNameId: false}*/)).process(content);
 
     let minified = htmlmin.minify(html, {
       useShortDoctype: true,

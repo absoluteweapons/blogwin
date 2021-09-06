@@ -10,9 +10,7 @@ permalink: "/{{page.fileSlug}}/"
   <article>
     {{ content | safe }}
   </article>
-  <div class="max-w-xl mx-auto">
-    <div id="hyvor-talk-view"></div>
-  </div>
+  <div data-comments-container class="max-w-xl mx-auto"></div>
   <!-- Comments -->
   {% set comments %}
     {% include "../assets/scripts/inline/comments.js" %}
