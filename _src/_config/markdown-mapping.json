@@ -1,22 +1,22 @@
 {
-  "h1": ["text-4xl", "text-red-600", "dark:text-red-400", "font-bold", "my-2"],
-  "h2": ["text-3xl", "text-red-600", "dark:text-red-400", "font-bold", "my-2"],
-  "h3": ["text-2xl", "text-red-600", "dark:text-red-400", "font-bold", "my-2"],
-  "h4": ["text-xl", "text-red-600", "dark:text-red-400", "font-bold", "my-2"],
+  "h1": ["text-4xl", "text-blue-500", "dark:text-yellow-400", "font-bold", "my-2"],
+  "h2": ["text-3xl", "text-blue-500", "dark:text-yellow-400", "font-bold", "my-2"],
+  "h3": ["text-2xl", "text-blue-500", "dark:text-yellow-400", "font-bold", "my-2"],
+  "h4": ["text-xl", "text-blue-500", "dark:text-yellow-400", "font-bold", "my-2"],
   "a": [
-    "border-b",
-    "border-red-500",
-    "dark:border-red-400",
+    "border-b-2",
+    "border-blue-500",
+    "dark:border-yellow-400",
     "inline-block",
     "pb-0.5",
     "transition",
-    "hover:border-red-800",
-    "dark:hover:border-red-100"
+    "hover:text-blue-500",
+    "dark:hover:text-yellow-400"
   ],
   "p": ["py-2"],
   "blockquote": [
     "border-l-4",
-    "border-red-400",
+    "border-yellow-400",
     "pl-6",
     "my-6"
   ],
