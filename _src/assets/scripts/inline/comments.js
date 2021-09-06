@@ -54,6 +54,6 @@
   }, options);
 
   const commentSection = document.getElementById("hyvor-talk-view");
-  
+  console.log(document, commentSection);
   observer.observe(commentSection);
 })(document, sessionStorage);
