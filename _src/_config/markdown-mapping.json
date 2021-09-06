@@ -1,8 +1,8 @@
 {
-  "h1": ["text-4xl", "text-red-400", "font-bold", "my-2"],
-  "h2": ["text-3xl", "text-red-400", "font-bold", "my-2"],
-  "h3": ["text-2xl", "text-red-400", "font-bold", "my-2"],
-  "h4": ["text-xl", "text-red-400", "font-bold", "my-2"],
+  "h1": ["text-4xl", "text-red-600", "dark:text-red-400", "font-bold", "my-2"],
+  "h2": ["text-3xl", "text-red-600", "dark:text-red-400", "font-bold", "my-2"],
+  "h3": ["text-2xl", "text-red-600", "dark:text-red-400", "font-bold", "my-2"],
+  "h4": ["text-xl", "text-red-600", "dark:text-red-400", "font-bold", "my-2"],
   "a": [
     "border-b",
     "border-red-500",
