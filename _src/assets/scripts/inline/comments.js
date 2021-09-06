@@ -20,8 +20,6 @@
     (dark) ? hyvor_talk.setPalette(palettes.dark) : hyvor_talk.setPalette(palettes.light);
   };
 
-  const commentSection = document.getElementById("hyvor-talk-view");
-  
   // hyvor colour palettes
   const palettes = {
     light: {
@@ -52,9 +50,10 @@
   };
 
   const observer = new IntersectionObserver(entries => {
-      console.log(entries);
     if (entries[0].isIntersecting) insertComments();
   }, options);
 
+  const commentSection = document.getElementById("hyvor-talk-view");
+  
   observer.observe(commentSection);
 })(document, sessionStorage);

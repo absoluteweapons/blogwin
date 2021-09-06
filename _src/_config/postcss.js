@@ -9,11 +9,19 @@ const postCssPlugins = [
 ];
 
 // minify for production
-if (process.env.NODE_ENV === "priduction") postCssPlugins.push(
-  require("cssnano")({
-    preset: "default",
-  })
-);
+if (process.env.NODE_ENV === "production")
+  postCssPlugins.push(
+    require("cssnano")({
+      preset: [
+        "default",
+        {
+          discardComments: {
+            removeAll: true,
+          },
+        },
+      ],
+    })
+  );
 
 module.exports = async function (cssInputFilePathParam) {
   const cssInputFilePath = path.resolve("_src", cssInputFilePathParam);

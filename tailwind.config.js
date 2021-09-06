@@ -1,6 +1,11 @@
+// environment setup
+require("dotenv").config();
+const prod = process.env.NODE_ENV === "production";
+
 module.exports = {
-  mode: "jit",
+  mode: (prod) ? "" : "jit",
   purge: {
+    enabled: (prod) ? true : false,
     content: [
       "./_dist/**/*.html",
       "./_src/**/*.{njk,json,js}",
