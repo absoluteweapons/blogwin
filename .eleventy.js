@@ -5,7 +5,7 @@ const jsmin = require("./_src/_config/jsmin.js");
 const htmlmin = require("./_src/_config/htmlmin.js");
 // markdown-it including markdown-it-class to add classes
 const markdownIt = require("@gerhobbelt/markdown-it");
-const markdownItClass = require("markdown-it-class");
+const markdownItClass = require("@toycode/markdown-it-class");
 // responsive images
 const responsiveImg = require("./_src/_config/responsiveImg.js")
 // eleventy settings
