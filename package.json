@@ -33,7 +33,6 @@
     "dotenv": "^8.2.0",
     "html-minifier": "^4.0.0",
     "jsdom": "^15.2.1",
-    "markdown-it-class": "file:./markdown-it-class",
     "npm": "^7.20.3",
     "postcss": "^8.3.6",
     "postcss-cli": "^8.3.1",
