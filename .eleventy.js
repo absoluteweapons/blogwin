@@ -36,7 +36,7 @@ module.exports = (config) => {
     ].reverse();
     return prod ? posts.filter((post) => !post.data.draft) : posts;
 
-    /* WHY DOES THIS NOT WORK EVEN WITH ASYNC AWAIT?
+    /* TODO WHY DOES THIS NOT WORK EVEN WITH ASYNC AWAIT?
     const posts = [...collection.getFilteredByGlob("./_src/posts/*.md")];
     posts.reverse();
     posts.filter((post) => !post.data.draft);

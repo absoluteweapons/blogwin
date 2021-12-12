@@ -5,9 +5,9 @@
   "main": "index.md",
   "scripts": {
     "clean": "rm -rf _dist",
-    "build": "export NODE_ENV=production && eleventy",
-    "build-test": "npm run clean && export NODE_ENV=production && eleventy --serve",
-    "develop": "export NODE_ENV=development && eleventy --serve",
+    "build": "export NODE_ENV=production && npx eleventy",
+    "build-test": "npm run clean && export NODE_ENV=production && npx eleventy --serve",
+    "develop": "export NODE_ENV=development && npx eleventy --serve",
     "develop-fresh": "npm run clean && npm run develop",
     "fresh-install": "rm -R node_modules && npm install"
   },
@@ -39,6 +39,7 @@
     "postcss-cli": "^8.3.1",
     "posthtml": "^0.16.5",
     "posthtml-minify-classnames": "^0.2.4",
+    "sharp": "^0.23.0",
     "tailwindcss": "^2.1.x",
     "terser": "^5.7.1"
   }

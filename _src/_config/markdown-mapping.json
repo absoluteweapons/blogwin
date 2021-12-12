@@ -16,7 +16,8 @@
   "p": ["py-2"],
   "blockquote": [
     "border-l-4",
-    "border-yellow-400",
+    "border-blue-500",
+    "dark:border-yellow-400",
     "pl-6",
     "my-6"
   ],
