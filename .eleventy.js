@@ -66,6 +66,15 @@ module.exports = (config) => {
   // favicons
   config.addPassthroughCopy("./_src/favicons");
 
+  // robots.txt
+  config.addPassthroughCopy("./_src/robots.txt");
+
+  // regexReplace shortcode
+  config.addShortcode("regexReplace", (re, string, replacer) => {
+    let regex = new RegExp(re);
+    return string.replace(regex, replacer);
+  });
+
   // set output dir
   return {
     dir: {
