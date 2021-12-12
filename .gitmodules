@@ -1,0 +1,3 @@
+[submodule "markdown-it-class"]
+	path = markdown-it-class
+	url = https://github.com/evawin/markdown-it-class.git
