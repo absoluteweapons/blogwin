@@ -21,10 +21,9 @@
     document.body.appendChild(hyvorScript);
   };
 
-  window.setCommentPalette = (dark) => {
-    dark
-      ? hyvor_talk.setPalette(palettes.dark)
-      : hyvor_talk.setPalette(palettes.light);
+  window.setCommentPalette = () => {
+    let palette = storage.theme === "dark" ? palettes.dark : palettes.light;
+    typeof hyvor_talk === "object" && hyvor_talk.setPalette(palette);
   };
 
   // hyvor colour palettes
@@ -63,4 +62,4 @@
   }, options);
 
   observer.observe(hyvorContainer);
-})(document, sessionStorage);
+})(document, localStorage);

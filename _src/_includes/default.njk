@@ -17,7 +17,7 @@
     </style>
 
     <!-- To work with posthtml-minify-classnames this script holds the minified version of .dark -->
-    <script data-dark-class="data-dark-class" class="dark"></script>
+    <script data-dark-class class="dark"></script>
 
     {% CFWA %}
   </head>
@@ -43,12 +43,6 @@
       </label>
     </div>
 
-    <!-- Dark mode -->
-    {% set darkjs %}
-      {% include "../assets/scripts/inline/dark-mode.js" %}
-    {% endset %}
-    <script>{{ darkjs | jsmin | safe }}</script>
-
     <div class="container mx-auto max-w-4xl p-4 sm:p-0">
       {{ content | safe }}
     </div>
@@ -63,5 +57,11 @@
         <p>I'm a techy and an internet geek. I love problem solving and nerding out online and with bits of tech. Anything I think is worth sharing finds its way onto this blog.</p>
       </div>
     </footer>
+
+    <!-- Dark mode -->
+    {% set darkjs %}
+      {% include "../assets/scripts/inline/dark-mode.js" %}
+    {% endset %}
+    <script>{{ darkjs | jsmin | safe }}</script>
   </body>
 </html>

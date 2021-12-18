@@ -7,8 +7,6 @@
   const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   // function to toggle class based on local storage or browser prefs
   const manageDark = () => {
-    // for hyvor
-    let dark = false;
     // change label
     const darkLabel = document.querySelector("[data-dark-label]");
 
@@ -23,7 +21,7 @@
     }
 
     // update comments
-    typeof setCommentPalette === "function" && setCommentPalette(dark);
+    typeof setCommentPalette === "function" && setCommentPalette();
   };
 
   // toggle radio input
@@ -47,4 +45,4 @@
 
   // set on load
   manageDark();
-})(window, document, sessionStorage);
+})(window, document, localStorage);
