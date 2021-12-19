@@ -31,8 +31,7 @@ module.exports = async (content, outputPath) => {
     const widths = sizes;
 
     // jpeg for development, avif and webp for production
-    let formats = [];
-    formats.push(process.env.IMAGES);
+    let formats = process.env.IMAGES.split(",");
 
     // run image through elevnty-img
     let metadata = await Image(src, {
