@@ -32,8 +32,7 @@ module.exports = async (content, outputPath) => {
 
     // jpeg for development, avif and webp for production
     let formats = [];
-    if (process.env.NODE_ENV === "production") formats.push("avif", "webp", "png");
-    formats.push("jpeg");
+    formats.push(process.env.IMAGES);
 
     // run image through elevnty-img
     let metadata = await Image(src, {
