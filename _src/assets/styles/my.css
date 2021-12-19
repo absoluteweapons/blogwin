@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  a[href^="http"]::after {
+    content: "\2197";
+    vertical-align: super;
+    @apply text-sm;
+    @apply ml-1;
+  }
+
+  hr {
+    @apply my-4;
+    @apply dark:border-opacity-50;
+  }
+
+  p + h1,
+  p + h2, 
+  p + h3, 
+  p + h4, 
+  p + h5, 
+  p + h6 {
+    @apply pt-6;
+  }
+}

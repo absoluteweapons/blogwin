@@ -9,14 +9,16 @@ fields:
   default: post
 - type: text
   name: title
-  label: title
+  label: Post Title
 - type: datetime
   name: date
-  label: date
+  label: Post Date
   default: now
 - type: file
   name: cover
-  label: cover
-  hidden: true
-pages:
-- _jekyll/_posts/how-to-quickly-make-and-share-a-screen-recording-gif-in-macos.md
+  label: Cover Image
+  hidden: false
+- name: draft
+  type: boolean
+  label: Draft
+  default: true

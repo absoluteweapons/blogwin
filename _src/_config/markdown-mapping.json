@@ -1,0 +1,43 @@
+{
+  "h1": ["text-4xl", "text-blue-500", "dark:text-yellow-400", "font-bold", "my-2"],
+  "h2": ["text-3xl", "text-blue-500", "dark:text-yellow-400", "font-bold", "my-2"],
+  "h3": ["text-2xl", "text-blue-500", "dark:text-yellow-400", "font-bold", "my-2"],
+  "h4": ["text-xl", "text-blue-500", "dark:text-yellow-400", "font-bold", "my-2"],
+  "a": [
+    "border-b-2",
+    "border-blue-500",
+    "dark:border-yellow-400",
+    "inline-block",
+    "pb-0.5",
+    "transition",
+    "hover:text-blue-500",
+    "dark:hover:text-yellow-400"
+  ],
+  "p": ["py-2"],
+  "blockquote": [
+    "border-l-4",
+    "border-blue-500",
+    "dark:border-yellow-400",
+    "pl-6",
+    "my-6"
+  ],
+  "code": [
+    "align-middle",
+    "bg-gray-800",
+    "text-gray-100",
+    "dark:bg-gray-200",
+    "dark:text-gray-700",
+    "inline-block",
+    "p-0.5",
+    "px-2",
+    "rounded",
+    "shadow-sm",
+    "max-w-full",
+    "overflow-auto",
+    "leading-snug"
+  ],
+  "ol": ["list-outside", "list-decimal", "pl-5"],
+  "ul": ["list-outside", "list-disc", "pl-5"],
+  "li": ["mb-1"],
+  "strong": ["font-bold"]
+}

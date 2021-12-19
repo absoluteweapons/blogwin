@@ -1,0 +1,22 @@
+---
+layout: default.njk
+---
+
+<h1 class="text-4xl my-5">Jamie's Blog</h1>
+<ul class="mt-2">
+  {%- for post in collections.posts -%}
+  <li class="my-4">
+    <a
+      class="text-xl border-solid border-0 border-b-2 border-blue-400 dark:border-yellow-400 pb-0.5"
+      href="{{ post.url }}"
+    >
+      <time
+        datetime="post.data.date"
+        class="block text-gray-500 text-base dark:text-gray-400"
+        >{{ post.data.date.toDateString() }}</time
+      >
+      {{ post.data.title }}
+    </a>
+  </li>
+  {%- endfor -%}
+</ul>
