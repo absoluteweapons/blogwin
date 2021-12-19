@@ -12,7 +12,10 @@
     window.HYVOR_TALK_WEBSITE = 4759;
     window.HYVOR_TALK_CONFIG = {
       url: "{{page.url}}",
-      palette: storage.theme === "dark" ? palettes.dark : palettes.light,
+      palette: 
+        (storage.theme === "dark" || (!("theme" in storage) && prefersDark))
+        ? palettes.dark
+        : palettes.light,
     };
 
     // hyvor js

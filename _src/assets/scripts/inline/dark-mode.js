@@ -4,7 +4,7 @@
     .querySelector("[data-dark-class]")
     .getAttribute("class");
   // os preference
-  const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+  window.prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
   // function to toggle class based on local storage or browser prefs
   const manageDark = () => {
     // change label
