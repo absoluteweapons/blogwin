@@ -3,6 +3,7 @@ layout: post
 title: DD-WRT scheduled reboot (with cron fallback)
 date: 2018-04-24T21:31:48.000Z
 cover: /assets/images/uploads/00100dPORTRAIT_00100_BURST20180424222321310_COVER.jpg
+meta_description: Workarounds to DD-WRT's reboot scheduler using cron to enable automatic reboots.
 ---
 If your DD-WRT router occasionally ~~craps out~~ struggles or stops working properly (usually after being on for a while), try scheduling a reboot. It should help clear the memory and keep everything running smoothly (in my experience).
 

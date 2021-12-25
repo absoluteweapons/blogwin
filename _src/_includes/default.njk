@@ -1,4 +1,3 @@
-<!-- TODO meta description -->
 <!-- TODO accessibility review -->
 <!doctype html>
 <html lang="en">
@@ -11,7 +10,12 @@
     <link rel="manifest" href="/favicons/site.webmanifest">
     <title>{{title if title else "Jamie's Blog"}}</title>
 
-    <!-- Since most traffic is single page + to benefit from minify classnames output CSS to HTML in <style> tagm pipe through safe so Nunjucks doesn't reformat -->
+    <!-- Meta description -->
+    <meta name="description"
+      content="{{meta_description if meta_description else 'Internet and technology guides by Jamie.' }}">
+
+    <!-- Since most traffic is single page + to benefit from minify classnames output
+    CSS to HTML in <style> tag, pipe through safe so Nunjucks doesn't reformat -->
     <style>
       {{ tailwind | safe}}
     </style>

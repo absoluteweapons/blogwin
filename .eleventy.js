@@ -3,7 +3,7 @@ const jsmin = require("./_src/_config/jsmin.js");
 // html-minifier
 const htmlmin = require("./_src/_config/htmlmin.js");
 // markdown-it including markdown-it-class to add classes
-const markdownIt = require("@gerhobbelt/markdown-it");
+const markdownIt = require("markdown-it");
 const markdownItClass = require("@toycode/markdown-it-class");
 // responsive images
 const responsiveImg = require("./_src/_config/responsiveImg.js")
