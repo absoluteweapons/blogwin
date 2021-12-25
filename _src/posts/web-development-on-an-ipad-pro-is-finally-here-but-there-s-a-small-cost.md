@@ -13,7 +13,15 @@ In fact, you’ve been able to build them on an iPad for a while (using [Code Se
 
 Now however, GitHub have made their own browser-based implementation of VS Code called [GitHub Codespaces](https://github.com/features/codespaces "GitHub Codespaces: browser-based implementation of VS Code") and it works…really quite well!
 
-However, there’s a catch. 
+Combine this with a good browser inspector and web dev is truly possible on an iPad Pro.
+
+# The catches and caveats
+
+It’s not quite perfect and there’s a wee bit of a catch.
+
+1. **It’s not free**
+
+   There’s a waitlist
 
 # Wait for free, or pay
 
