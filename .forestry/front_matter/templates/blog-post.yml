@@ -32,3 +32,5 @@ fields:
       format: markdown
   label: Meta Description
   description: Optional meta description - if blank, default will be used.
+pages:
+- _src/posts/web-development-on-an-ipad-pro-is-finally-here-but-there-s-a-small-cost.md
