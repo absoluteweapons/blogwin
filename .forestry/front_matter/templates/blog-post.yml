@@ -22,3 +22,13 @@ fields:
   type: boolean
   label: Draft
   default: true
+- name: meta_description
+  type: textarea
+  default: ''
+  config:
+    required: false
+    wysiwyg: false
+    schema:
+      format: markdown
+  label: Meta Description
+  description: Optional meta description - if blank, default will be used.
