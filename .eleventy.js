@@ -1,4 +1,3 @@
-// TODO improve reloading, e.g. when css changes
 // html-minifier
 const jsmin = require("./_src/_config/jsmin.js");
 // html-minifier
@@ -35,13 +34,6 @@ module.exports = (config) => {
       ...collection.getFilteredByGlob("./_src/posts/*.md"),
     ].reverse();
     return prod ? posts.filter((post) => !post.data.draft) : posts;
-
-    /* TODO WHY DOES THIS NOT WORK EVEN WITH ASYNC AWAIT?
-    const posts = [...collection.getFilteredByGlob("./_src/posts/*.md")];
-    posts.reverse();
-    posts.filter((post) => !post.data.draft);
-    return posts;
-    */
   });
 
   // additional watched files
