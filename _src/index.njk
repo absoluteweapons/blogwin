@@ -6,16 +6,15 @@ layout: default.njk
 <ul class="mt-2">
   {%- for post in collections.posts -%}
   <li class="my-4">
-    <a
-      class="text-xl border-solid border-0 border-b-2 border-blue-400 dark:border-yellow-400 pb-0.5"
-      href="{{ post.url }}"
-    >
+    <a href="{{ post.url }}">
       <time
         datetime="post.data.date"
-        class="block text-gray-500 text-base dark:text-gray-400"
+        class="block text-gray-500 text-base dark:text-gray-400 no-underline decoration-transparent"
         >{{ post.data.date.toDateString() }}</time
       >
+      <span class="text-xl underline underline-offset-8 decoration-2 decoration-blue-500 dark:decoration-yellow-400 inline-block transition hover:text-blue-500 dark:hover:text-yellow-400">
       {{ post.data.title }}
+      </span>
     </a>
   </li>
   {%- endfor -%}

@@ -7,9 +7,12 @@
     -webkit-tap-highlight-color: transparent;
   }
 
+  .prose a[href^="http"]::after,
   a[href^="http"]::after {
     content: "\2197";
     vertical-align: super;
+    text-decoration: none;
+    display: inline-block;
     @apply text-sm;
     @apply ml-1;
   }
