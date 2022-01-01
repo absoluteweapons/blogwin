@@ -1,6 +1,6 @@
 ---
 layout: post
-date: 2021-12-25T15:13:03Z
+date: 2021-12-25T15:13:03.000+00:00
 draft: true
 title: Web development on an iPad Pro is finally here, but there’s a (small) cost
 cover: "/assets/images/ce433dd3-ccf9-42d2-bae0-c848974da3ec.jpeg"
@@ -66,3 +66,5 @@ Navigate to [**Organisations**](https://github.com/settings/organizations "GitHu
 > Tip: I set up a new organisation and regretted it. I had to move my repositories into the organisation and reconnect all apps and services. I wish I’d upgraded my account instead.
 
 ### Step two: enable Codespaces on your account
+
+Go to
