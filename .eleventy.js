@@ -7,6 +7,8 @@ const markdownIt = require("markdown-it");
 const markdownItClass = require("@toycode/markdown-it-class");
 // responsive images
 const responsiveImg = require("./_src/_config/responsiveImg.js")
+// outbound links
+const outboundLinks = require("./_src/_config/outboundLinks.js")
 // eleventy settings
 const { inputDir, outputDir } = require("./_src/_config/settings.json");
 // CFWA
@@ -45,6 +47,9 @@ module.exports = (config) => {
 
   // responsive images here
   config.addTransform("responsiveImg", responsiveImg);
+
+  // outbound links
+  config.addTransform("outboundLinks", outboundLinks);
 
   // minify js
   config.addNunjucksAsyncFilter("jsmin", jsmin);

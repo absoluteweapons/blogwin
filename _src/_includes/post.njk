@@ -7,7 +7,7 @@ permalink: "/{{page.fileSlug}}/"
     <h1 class="text-4xl text-blue-500 dark:text-yellow-400 font-bold mb-2">{{ title }}</h1>
     <time class="block text-xl text-gray-500 font-bold dark:text-gray-300" datetime="{{ date }}">{{ date.toDateString() }}</time>
   </header>
-  <article class="prose prose-xl dark:prose-invert whitespace-normal break-words">
+  <article class="max-w-prose prose prose-xl dark:prose-invert whitespace-normal break-words">
     {{ content | safe }}
   </article>
   <div data-comments-container class="max-w-xl mx-auto"></div>
