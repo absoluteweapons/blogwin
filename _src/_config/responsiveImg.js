@@ -40,7 +40,7 @@ module.exports = async (content, outputPath) => {
       outputDir: "_dist/assets/images",
       urlPath: "/assets/images/",
     });
-    // TODO images to CDN, Git LFS or similar
+    // TODO checkout, set up Cloudinary
 
     let imageAttributes = {
       alt,
