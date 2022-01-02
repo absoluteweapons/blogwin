@@ -13,11 +13,11 @@
     // update body class
     if (storage.theme === "dark" || (!("theme" in storage) && prefersDark)) {
       document.documentElement.classList.add(darkClass);
-      darkLabel.textContent = "Dark Mode";
+      darkLabel.textContent = "Dark";
       dark = true;
     } else {
       document.documentElement.classList.remove(darkClass);
-      darkLabel.textContent = "Light Mode";
+      darkLabel.textContent = "Light";
     }
 
     // update comments
