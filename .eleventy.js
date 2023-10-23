@@ -11,8 +11,6 @@ const responsiveImg = require("./_src/_config/responsiveImg.js")
 const outboundLinks = require("./_src/_config/outboundLinks.js")
 // eleventy settings
 const { inputDir, outputDir } = require("./_src/_config/settings.json");
-// CFWA
-const CFWA = require("./_src/_config/cfwa.js");
 
 // environment setup
 require("dotenv").config();
@@ -56,9 +54,6 @@ module.exports = (config) => {
 
   // minify html and uglify classnames if prod
   if (prod) config.addTransform("htmlmin", htmlmin);
-
-  // CWFA_TOKEN token in templates
-  config.addShortcode("CFWA", CFWA);
 
   // favicons
   config.addPassthroughCopy("./_src/favicons");
