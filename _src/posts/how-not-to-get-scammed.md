@@ -1,12 +1,13 @@
 ---
 layout: post
-date: 2022-04-02T15:40:45Z
+date: 2022-04-02T15:40:45.000Z
 draft: true
 title: How not to get scammed
 cover: ''
 meta_description: ''
-
+_template: blog_post
 ---
+
  1. Downloading screen sharing / control software
  2. Contact the company yourself
  3. Panic and urgency

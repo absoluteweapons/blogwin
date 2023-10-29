@@ -7,8 +7,9 @@
     "clean": "rm -rf _dist",
     "build": "export NODE_ENV=production && npx eleventy",
     "build-test": "npm run clean && export NODE_ENV=production && npx eleventy --serve",
-    "develop": "export NODE_ENV=development && npx eleventy --serve",
-    "develop-fresh": "npm run clean && npm run develop",
+    "develop": "npx tinacms dev -c 'npm run develop:eleventy'",
+    "develop:eleventy": "export NODE_ENV=development && npx eleventy --serve",
+    "develop:fresh": "npm run clean && npm run develop",
     "fresh-install": "rm -R node_modules && npm install"
   },
   "repository": {
@@ -26,6 +27,7 @@
     "@11ty/eleventy-cache-assets": "^2.3.0",
     "@11ty/eleventy-img": "^1.0.0",
     "@tailwindcss/typography": "^0.5.0",
+    "@tinacms/cli": "^1.5.31",
     "@toycode/markdown-it-class": "^1.2.4",
     "autoprefixer": "^10.4.0",
     "clean-css": "^5.2.2",
@@ -42,6 +44,7 @@
     "posthtml-minify-classnames": "^0.3.0",
     "sharp": "^0.29.3",
     "tailwindcss": "^3.0.7",
-    "terser": "^5.10.0"
+    "terser": "^5.10.0",
+    "tinacms": "^1.5.22"
   }
 }
